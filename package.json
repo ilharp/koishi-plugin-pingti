@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-pingti",
   "description": "最佳平替 - 用更低价的搜索词购物",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -9,12 +9,23 @@
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilharp/koishi-plugin-pingti.git"
+  },
+  "scripts": {
+    "build": "atsc -b"
+  },
   "keywords": [
     "chatbot",
     "koishi",
     "plugin"
   ],
+  "devDependencies": {
+    "atsc": "^1.2.2",
+    "koishi": "^4.15.6",
+    "typescript": "^5.2.2"
+  },
   "peerDependencies": {
     "koishi": "^4.16.4"
   }
