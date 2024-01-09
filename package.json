@@ -24,7 +24,8 @@
   "devDependencies": {
     "atsc": "^1.2.2",
     "koishi": "^4.15.6",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "yml-register": "^1.1.0"
   },
   "peerDependencies": {
     "koishi": "^4.16.4"
