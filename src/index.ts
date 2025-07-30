@@ -86,7 +86,7 @@ export function apply(ctx: Context, config: Config) {
 
         try {
           const result = await ctx.http.post(
-            'https://www.pingti.xyz/api/chat',
+            'https://pingti.app/api/chat',
             JSON.stringify({
               messages: [
                 {
@@ -111,8 +111,10 @@ export function apply(ctx: Context, config: Config) {
 
       task = t.then(() => sleep(2000))
 
-      const result = (await t).toString('utf8')
-      if (result instanceof Error) throw result
+      const resultObj = await t;
+      if (resultObj instanceof Error) { throw resultObj };
+      const result = resultObj.response;
+      const reason = resultObj.reason;
 
       void ctx.database
         .upsert('pingti', [
@@ -126,7 +128,7 @@ export function apply(ctx: Context, config: Config) {
           l.error(e)
         })
 
-      return `${key} 的平替是：${result}`
+      return `${key} 的平替是：${result}\n理由：${reason}`;
     } catch (e) {
       l.error('处理时出现错误：')
       l.error(e)
